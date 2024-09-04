@@ -2,7 +2,7 @@
 #include<stdlib.h>
 // returns the number of digits in a base-10 number
 int numdigits (int n) {
-int count = 0;
+int count = 1;
 while ((n /= 10) != 0) {
 count++;
 }
@@ -21,7 +21,7 @@ return result;
 // 6 is at the 10^2, or 100s place in 5678
 int digit_place (int d, int tensplace) {
 int p10 = powerof10 (tensplace);
-return d / (p10 * 10) % p10;
+return (int) ((d % (p10 * 10)) / p10);
 }
 int main (int argc, char **argv) {
 char *digit_str[] = { "zero", "one", "two", "three",
