@@ -1,0 +1,3 @@
+The main bottleneck when transferring a 100 MB binary file seems to be the transferring of the file.
+This makes sense since the transfer is facilitated with a buffer size of 256 bytes.
+The time to transfer was 18416077 microseconds. If we do some math, the buffer operates 21211 times every second.
