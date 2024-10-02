@@ -1,6 +1,9 @@
 #include <iostream>
+<<<<<<< HEAD
 #include <cmath>
 #include <cstring>
+=======
+>>>>>>> 31d2465 (Lab1 commit)
 
 struct Point {
     int x, y;
@@ -12,6 +15,7 @@ struct Point {
 class Shape {
     int vertices;
     Point** points;
+<<<<<<< HEAD
 public:
     Shape (int _vertices) {
         vertices = _vertices;
@@ -29,11 +33,24 @@ public:
     }
 
     void addPoints (Point pts[]) {
+=======
+
+    Shape (int _vertices) {
+        vertices = _vertices;
+        points = new Point*[vertices+1];
+    }
+
+    ~Shape () {
+    }
+
+    void addPoints (/* formal parameter for unsized array called pts */) {
+>>>>>>> 31d2465 (Lab1 commit)
         for (int i = 0; i <= vertices; i++) {
             memcpy(points[i], &pts[i%vertices], sizeof(Point));
         }
     }
 
+<<<<<<< HEAD
     double area () {
         int temp = 0;
         for (int i = 0; i < vertices; i++) {
@@ -45,6 +62,19 @@ public:
         }
         double area = std::abs(temp)/2.0;
         return area;
+=======
+    double* area () {
+        int temp = 0;
+        for (int i = 0; i <= vertices; i++) {
+            // FIXME: there are two methods to access members of pointers
+            //        use one to fix lhs and the other to fix rhs
+            int lhs = points[i].x * points[i+1].y;
+            int rhs = points[i+1].x * points[i].y;
+            temp += (lhs - rhs);
+        }
+        double area = abs(temp)/2.0;
+        return &area;
+>>>>>>> 31d2465 (Lab1 commit)
     }
 };
 
@@ -54,6 +84,7 @@ int main () {
     //          tri1 = (0, 0)
     //          tri2 = (1, 2)
     //          tri3 = (2, 0)
+<<<<<<< HEAD
     Point tri1 = {0,0};
     Point tri2(1,2);
     Point tri3;
@@ -63,6 +94,13 @@ int main () {
     Point triPts[3] = {tri1, tri2, tri3};
     Shape* tri = new Shape(3);
     tri->addPoints(triPts);
+=======
+
+    // adding points to tri
+    Point triPts[3] = {tri1, tri2, tri3};
+    Shape* tri = new Shape(3);
+    tri.addPoints(triPts);
+>>>>>>> 31d2465 (Lab1 commit)
 
     // FIXME: create the following points using your preferred struct
     //        definition:
@@ -70,6 +108,7 @@ int main () {
     //          quad2 = (0, 2)
     //          quad3 = (2, 2)
     //          quad4 = (2, 0)
+<<<<<<< HEAD
     Point quad1(0,0);
     Point quad2(0,2);
     Point quad3(2,2);
@@ -85,4 +124,13 @@ int main () {
     
     delete tri;
     delete quad;
+=======
+
+    // adding points to quad
+    Point quadPts[4] = {quad1, quad2, quad3, quad4};
+    Shape* quad = new Shape(4);
+    quad.addPoints(quadPts);
+
+    // FIXME: print out area of tri and area of quad
+>>>>>>> 31d2465 (Lab1 commit)
 }
