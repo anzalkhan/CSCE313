@@ -1,0 +1,23 @@
+date +%s
+sleep 10 &
+date +%s
+sleep 10
+pwd
+pwd
+echo "Hello world | Life is Good > Great $"
+ps aux > a
+grep /init < a
+grep /init < a > b
+ls -l -a
+ls -l . 
+ls
+ps aux | awk '/usr/{print $1}' | sort -r
+ps aux > test.txt
+awk '{print $1$11}' < test.txt | head -10 | tr a-z A-Z | sort > output.txt
+cat output.txt
+ps aux
+ls -l | grep "shell.cpp"
+cd ../..
+cd -
+cd /
+exit
